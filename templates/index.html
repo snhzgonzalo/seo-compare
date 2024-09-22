@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+  <h1>Comparador de métricas SEO</h1>
+  <form action="/compare" method="post">
+      <input type="url" name="url1" placeholder="Ingrese la primera URL" required>
+      <input type="url" name="url2" placeholder="Ingrese la segunda URL" required>
+      <button class="button" type="submit">Comparar</button>
+  </form>
+  <form action="/history" method="GET">
+      <button type="submit" class="history-button">Ver historial de comparaciones</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Error{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>Ocurrió un error</h1>
+    <h3><strong>Error:</strong> {{ error_message }}</h3>
+  </div>
+  <br>
+  <form action="/" method="GET">
+    <button type="submit" class="button">Volver al inicio</button>
+  </form>
+{% endblock %}

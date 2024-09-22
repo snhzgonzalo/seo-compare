@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Resultados{% endblock %}
+{% block content %}
+    <div class="table-container">
+        <h2>Resultados de comparación</h2>
+        <table>
+            <tr>
+                <th>Métrica</th>
+                <th>{{ comparison.url1.url }}</th>
+                <th>{{ comparison.url2.url }}</th>
+            </tr>
+            <tr>
+                <td>Speed Index</td>
+                <td>{{ comparison.url1.display_speed_index() }}</td>
+                <td>{{ comparison.url2.display_speed_index() }}</td>
+            </tr>
+            <tr>
+                <td>Time to Interactive</td>
+                <td>{{ comparison.url1.display_time_to_interactive() }}</td>
+                <td>{{ comparison.url2.display_time_to_interactive() }}</td>
+            </tr>
+        </table>
+        <form action="/" method="GET">
+            <button type="submit" class="button">Volver al inicio</button>
+        </form>
+        <form action="/history" method="GET">
+            <button type="submit" class="history-button">Ver historial de comparaciones</button>
+        </form>
+    </div>
+{% endblock %}

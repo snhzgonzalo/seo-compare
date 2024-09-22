@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+SQLAlchemy
+requests
+pymysql
+Werkzeug
+python-dotenv

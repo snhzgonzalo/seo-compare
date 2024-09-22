@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Historial{% endblock %}
+{% block content %}
+    <div class="table-container">
+        <h1>Historial de comparaciones</h1>
+        {% if comparisons %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>URL 1</th>
+                        <th>URL 2</th>
+                        <th>Speed Index URL 1</th>
+                        <th>Speed Index URL 2</th>
+                        <th>Time to Interactive URL 1</th>
+                        <th>Time to Interactive URL 2</th>
+                        <th>Fecha de consulta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comparison in comparisons %}
+                        <tr>
+                            <td>{{ comparison.url1.url }}</td>
+                            <td>{{ comparison.url2.url }}</td>
+                            <td>{{ comparison.url1.display_speed_index() }}</td>
+                            <td>{{ comparison.url2.display_speed_index() }}</td>
+                            <td>{{ comparison.url1.display_time_to_interactive() }}</td>
+                            <td>{{ comparison.url2.display_time_to_interactive() }}</td>
+                            <td>{{ comparison.creation_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No hay registros</p>
+            <br>
+        {% endif %}
+        <form action="/" method="GET">
+            <button type="submit" class="button">Volver al inicio</button>
+        </form>
+    </div>
+{% endblock %}
